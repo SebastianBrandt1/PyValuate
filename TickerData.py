@@ -8,6 +8,7 @@ from matplotlib import style
 import pandas_datareader as web
 import pickle
 import requests
+import data_base as db
 
 
 def save_sp500_tickers():
@@ -111,7 +112,17 @@ def visualize_data():
     #plt.show()
     # print(df["AAPL"])
 
-visualize_data()
+
+print(str(db._conn))
+db.open_database("test.db")
+print(str(db._conn))
+db.close_database()
+
+# db.create_table()
+# db.data_entry()
+#db.create_new_table(tablename="MyNewTable",field_type_tupel=[("field1", "TEXT"), ("field2", "REAL"), ("field3", "TEXT"), ("field4", "REAL")])
+
+#visualize_data()
 # compile_data()
 # get_data_from_yahoo()
 # save_sp500_tickers()
